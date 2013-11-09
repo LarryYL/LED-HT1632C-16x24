@@ -53,7 +53,11 @@ def beaMap(x,y):
 		ori = 0
 	else:
 		ori = 1
-	address = ori + rowSkip*(16*2) + y*4 + colSkip*2
+	
+	if colSkip=0:
+		address = ori + rowSkip*(16*2) + y*4 + colSkip*2
+	else:
+		address = ori + rowSkip*(16*2) + (y-8)*4 + colSkip*2
 	binAdd = Tobin(address,7)
 	append = x%4
 	if append == 0:
