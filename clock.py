@@ -116,17 +116,6 @@ def beaMap(pixelList):
 		addList.append(add)
 		
 	return addList
-				
-			
-		
-		
-		
-		
-		
-		
-	
-	
-	return strList
 
 def reset():
 	add = 0
