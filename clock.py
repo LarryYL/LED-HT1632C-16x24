@@ -31,7 +31,9 @@ def Tobin(inter,digit):
 		raw = zeros + raw
 	return raw
 
-def sendString(bitString):
+def sendString(bitString,CS=True):
+	if CS:
+		GPIO.output(CS,GPIO.LOW)
 	for bit in bitString:
 		bit = int(bit)
 		GPIO.output(WRITE,GPIO.LOW)
@@ -41,6 +43,8 @@ def sendString(bitString):
 			GPIO.output(DATA,GPIO.LOW)
 		GPIO.output(WRITE,GPIO.HIGH)
 	GPIO.output(DATA,GPIO.HIGH)
+	if CS:
+		GPIO.output(CS,GPIO.HIGH)
 
 def beaMap(x,y):
 	if x<0 or x>23 or y<0 or y>15:
@@ -54,7 +58,7 @@ def beaMap(x,y):
 	else:
 		ori = 1
 	
-	if colSkip == 0:
+	if colSkip=0:
 		address = ori + rowSkip*(16*2) + y*4 + colSkip*2
 	else:
 		address = ori + rowSkip*(16*2) + (y-8)*4 + colSkip*2
@@ -80,28 +84,26 @@ def reset():
 
 	
 try:
-	GPIO.output(CS,GPIO.LOW)
 	sendString(SYSON)
-	GPIO.output(CS,GPIO.HIGH)
-	GPIO.output(CS,GPIO.LOW)
 	sendString(SYSSET)
-	GPIO.output(CS,GPIO.HIGH)
-	GPIO.output(CS,GPIO.LOW)
 	sendString(LEDON)
-	GPIO.output(CS,GPIO.LOW)
 	sleep(0.5)
 	while True:
+		'''
 		for y in range(0,16):
 			for x in range(0,24):
 				mem = beaMap(x,y)
-				GPIO.output(CS,GPIO.LOW)
 				print mem
 				sendString(mem)
-				GPIO.output(CS,GPIO.HIGH)
 				sleep(0.1)
 				reset()
 
-	
+		'''
+		mem1 = beaMap(15,15)
+		mem2 = beaMap(15,16)
+		sendString(mem1)
+		sendString(mem2)
+		
 	
 	'''
 	start = 0
@@ -127,10 +129,6 @@ try:
 	'''
 
 except KeyboardInterrupt:
-	GPIO.output(CS,GPIO.LOW)
 	sendString(LEDOFF)
-	GPIO.output(CS,GPIO.HIGH)
-	GPIO.output(CS,GPIO.LOW)
 	sendString(SYSOFF)
-	GPIO.output(CS,GPIO.HIGH)
 	GPIO.cleanup()
