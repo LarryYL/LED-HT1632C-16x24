@@ -131,7 +131,6 @@ try:
 	sendString(LEDON)
 	sleep(0.5)
 	reset()
-	print 'hi'
 	
 	pixelList = []
 	for x in range(24):
