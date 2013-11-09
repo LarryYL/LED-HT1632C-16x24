@@ -143,20 +143,10 @@ try:
 	sleep(0.5)
 	reset()
 	
-	pixelList = []
-	for x in range(24):
-		for y in range(16):
-			pixelList.append([x,y])
-	memList = beaMap(pixelList)
-		
-	while True:
-	        '''
-		for item in memList:
-			sendString(item)
-	        '''
 	memList = beaMap(zero)
-	for mem in memList:
-	   sendString(mem)
+	while True:
+       	    for mem in memList:
+        	   sendString(mem)
 	'''
 	start = 0
 	while True:	
