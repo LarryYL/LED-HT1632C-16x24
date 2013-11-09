@@ -54,7 +54,7 @@ def beaMap(x,y):
 	else:
 		ori = 1
 	
-	if colSkip=0:
+	if colSkip == 0:
 		address = ori + rowSkip*(16*2) + y*4 + colSkip*2
 	else:
 		address = ori + rowSkip*(16*2) + (y-8)*4 + colSkip*2
