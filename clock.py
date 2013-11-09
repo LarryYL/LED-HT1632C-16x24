@@ -87,6 +87,7 @@ def beaMap(pixelList):
 	for add in strList:
 		prefix = add[0:10]
 		prefixList.append(prefix)
+	print prefixList
 	for prefix in prefixList:
 		tempList = []
 		for index,refPrefix in enumerate(prefixList):
