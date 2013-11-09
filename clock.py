@@ -143,10 +143,15 @@ try:
 	sleep(0.5)
 	reset()
 	
-	memList = beaMap(zero)
+	addList = []
+	for number in numbers:
+	   memList = beaMap(number)
+	   addList.append(memList)
 	while True:
-       	    for mem in memList:
-        	   sendString(mem)
+	    for memList in addList:
+       	        for mem in memList:
+        	       sendString(mem)
+        	sleep(0.5)
 	'''
 	start = 0
 	while True:	
