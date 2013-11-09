@@ -147,6 +147,7 @@ try:
 		for y in range(2):
 			pixelList.append([x,y])
 	memList = beaMap(pixelList)
+	print memList
 		
 
 	for item in memList:
