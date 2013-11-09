@@ -141,6 +141,7 @@ try:
 	while True:
 		for item in memList:
 			sendString(item)
+			reset()
 
 	
 	
