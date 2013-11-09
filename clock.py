@@ -117,6 +117,7 @@ def beaMap(pixelList):
 		suffix = '%s%s%s%s' %(num1,num2,num3,num4)
 		add = prefix + suffix
 		addList.append(add)
+		count += 1
 		
 	return addList
 
