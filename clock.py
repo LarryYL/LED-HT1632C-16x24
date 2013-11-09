@@ -105,10 +105,10 @@ try:
 		mem2 = beaMap(5,6)
 		mem3 = beaMap(5,7)
 		mem4 = beaMap(5,8)
-		mem5 = beaMap(6,5)
-		mem7 = beaMap(7,6)
-		mem8 = beaMap(8,7)
-		mem9 = beaMap(9,8)
+		mem5 = beaMap(5,9)
+		mem7 = beaMap(5,10)
+		mem8 = beaMap(5,11)
+		mem9 = beaMap(5,12)
 		
 		'''
 		for x in range(3):
