@@ -111,7 +111,7 @@ def beaMap(pixelList):
 				num3 = 1
 			elif int(strSuff) == 1:
 				num4 = 1
-		suffix = '&s&s&s&s' %(num1,num2,num3,num4)
+		suffix = '%s%s%s%s' %(num1,num2,num3,num4)
 		add = prefix + suffix
 		addList.append(add)
 		
