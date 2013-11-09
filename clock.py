@@ -152,6 +152,7 @@ try:
        	        for mem in memList:
         	       sendString(mem)
         	sleep(0.5)
+        	reset()
 	'''
 	start = 0
 	while True:	
