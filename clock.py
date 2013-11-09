@@ -83,18 +83,15 @@ def beaMap(pixelList):
 	
 	prefixList = []
 	indexList = []
-	print strList
 	for add in strList:
 		prefix = add[0:10]
 		prefixList.append(prefix)
-	print prefixList
 	for prefix in prefixList:
 		tempList = []
 		for index,refPrefix in enumerate(prefixList):
 			if prefix == refPrefix:
 				tempList.append(index)
 		indexList.append(tempList)
-	print indexList
 		
 	addList = []	
 	count = 0
@@ -136,15 +133,15 @@ try:
 	reset()
 	
 	pixelList = []
-	for x in range(5):
-		for y in range(2):
+	for x in range(10):
+		for y in range(10):
 			pixelList.append([x,y])
 	memList = beaMap(pixelList)
 	print memList
 		
-
-	for item in memList:
-		sendString(item)
+	while True:
+		for item in memList:
+			sendString(item)
 
 	
 	
