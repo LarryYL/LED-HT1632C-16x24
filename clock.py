@@ -141,10 +141,7 @@ try:
 	while True:
 		for item in memList:
 			sendString(item)
-		sleep(0.1)
-		reset()
-		sleep(0.1)
-	
+
 	
 	'''
 	start = 0
