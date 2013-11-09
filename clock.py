@@ -111,13 +111,21 @@ try:
 		mem9 = beaMap(5,12)
 		mem6 = beaMap(5,13)
 		
+		memList=[]
+		for y in range(1,10):
+			mem = beaMap(5,y)
+			memList.append(mem)
+		for item in memList:
+			sendString(item)
+		
+		
 		'''
 		for x in range(3):
 			mem = beaMap(x,3)
 			memList.append(mem)
 		for item in memList:
 			sendString(item)
-		'''
+		
 		sendString(mem1)
 		sendString(mem2)
 		sendString(mem3)
@@ -127,7 +135,7 @@ try:
 		sendString(mem7)
 		sendString(mem8)
 		sendString(mem9)
-		
+		'''
 	
 	'''
 	start = 0
