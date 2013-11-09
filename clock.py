@@ -148,7 +148,6 @@ try:
 			pixelList.append([x,y])
 	memList = beaMap(pixelList)
 		
-	while True:
 		'''
 		for y in range(0,16):
 			for x in range(0,24):
@@ -160,8 +159,8 @@ try:
 
 		'''
 		
-		for item in memList:
-			sendString(item)
+	for item in memList:
+		sendString(item)
 
 	
 	
