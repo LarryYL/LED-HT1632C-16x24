@@ -154,8 +154,9 @@ try:
 		for item in memList:
 			sendString(item)
 	        '''
-	mem = beaMap(zero)
-	sendString(mem)
+	memList = beaMap(zero)
+	for mem in memList:
+	   sendString(mem)
 	'''
 	start = 0
 	while True:	
