@@ -109,6 +109,7 @@ try:
 		mem7 = beaMap(5,10)
 		mem8 = beaMap(5,11)
 		mem9 = beaMap(5,12)
+		mem6 = beaMap(5,13)
 		
 		'''
 		for x in range(3):
