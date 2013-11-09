@@ -82,12 +82,45 @@ def beaMap(pixelList):
 		strList.append(outputStr)
 	
 	prefixList = []
-	indexLit = []
+	indexList = []
 	for add in strList:
 		prefix = add[0:10]
 		prefixList.append(prefix)
 	for prefix in prefixList:
-		for index,prefix in enumerate(prefixList):
+		tempList = []
+		for index,refPrefix in enumerate(prefixList):
+			if prefix == refPrefix:
+				tempList.append(index)
+		indexList.append(tempList)
+		
+	addList = []	
+	count = 0
+	for item in indexList:
+		prefix = prefixList[count]
+		num1 = 0
+		num2 = 0
+		num3 = 0
+		num4 = 0
+		for index in item:
+			strSuff = strList[index][-4:]
+			if int(strSuff) == 1000:
+				num1 = 1
+			elif int(strSuff) == 100:
+				num2 = 1
+			elif int(strSuff) == 10:
+				num3 = 1
+			elif int(strSuff) == 1:
+				num4 = 1
+		suffix = '&s&s&s&s' %(num1,num2,num3,num4)
+		add = prefix + suffix
+		addList.append(add)
+		
+	return addList
+				
+			
+		
+		
+		
 		
 		
 		
