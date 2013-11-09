@@ -46,35 +46,41 @@ def sendString(bitString,auto=True):
 	if auto:
 		GPIO.output(CS,GPIO.HIGH)
 
-def beaMap(x,y):
-	if x<0 or x>23 or y<0 or y>15:
-		raise ValueError('Pixel out of range!')
+def beaMap(pixelList):
 	
-	colSkip = y/8
-	rowSkip = x/8
+	strList = []
+	for pixel in pixelList:
+		x = pixel[0]
+		y = pixel[1]
+		if x<0 or x>23 or y<0 or y>15:
+			raise ValueError('Pixel out of range!')
+		
+		colSkip = y/8
+		rowSkip = x/8
+		
+		if (x/4)%2 == 0:
+			ori = 0
+		else:
+			ori = 1
+		
+		if colSkip == 0:
+			address = ori + rowSkip*(16*2) + y*4 + colSkip*2
+		else:
+			address = ori + rowSkip*(16*2) + (y-8)*4 + colSkip*2
+		binAdd = Tobin(address,7)
+		append = x%4
+		if append == 0:
+			appendBin = '1000'
+		if append == 1:
+			appendBin = '0100'
+		if append == 2:
+			appendBin = '0010'
+		if append == 3:
+			appendBin = '0001'
 	
-	if (x/4)%2 == 0:
-		ori = 0
-	else:
-		ori = 1
-	
-	if colSkip == 0:
-		address = ori + rowSkip*(16*2) + y*4 + colSkip*2
-	else:
-		address = ori + rowSkip*(16*2) + (y-8)*4 + colSkip*2
-	binAdd = Tobin(address,7)
-	append = x%4
-	if append == 0:
-		appendBin = '1000'
-	if append == 1:
-		appendBin = '0100'
-	if append == 2:
-		appendBin = '0010'
-	if append == 3:
-		appendBin = '0001'
-
-	outputStr = '101' + binAdd + appendBin	
-	return outputStr
+		outputStr = '101' + binAdd + appendBin	
+		strList.append(outputStr)
+	return strList
 
 def reset():
 	add = 0
@@ -89,6 +95,13 @@ try:
 	sendString(LEDON)
 	sleep(0.5)
 	reset()
+	
+	pixelList = []
+	for x in range(5):
+		for y in range(2):
+			pixelList.append([x,y])
+	memList = beaMap(pixelList)
+		
 	while True:
 		'''
 		for y in range(0,16):
@@ -101,41 +114,10 @@ try:
 
 		'''
 		
-		mem1 = beaMap(5,5)
-		mem2 = beaMap(5,6)
-		mem3 = beaMap(5,7)
-		mem4 = beaMap(5,8)
-		mem5 = beaMap(5,9)
-		mem7 = beaMap(5,10)
-		mem8 = beaMap(5,11)
-		mem9 = beaMap(5,12)
-		mem6 = beaMap(5,13)
-		
-		memList=[]
-		for y in range(1,10):
-			mem = beaMap(5,y)
-			memList.append(mem)
 		for item in memList:
 			sendString(item)
-		
-		
-		'''
-		for x in range(3):
-			mem = beaMap(x,3)
-			memList.append(mem)
-		for item in memList:
-			sendString(item)
-		
-		sendString(mem1)
-		sendString(mem2)
-		sendString(mem3)
-		sendString(mem4)
-		sendString(mem5)
-		sendString(mem6)
-		sendString(mem7)
-		sendString(mem8)
-		sendString(mem9)
-		'''
+
+	
 	
 	'''
 	start = 0
