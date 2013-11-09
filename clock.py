@@ -105,16 +105,27 @@ try:
 		mem2 = beaMap(5,6)
 		mem3 = beaMap(5,7)
 		mem4 = beaMap(5,8)
-		memList = []
+		mem5 = beaMap(6,5)
+		mem7 = beaMap(7,6)
+		mem8 = beaMap(8,7)
+		mem9 = beaMap(9,8)
+		
+		'''
 		for x in range(3):
 			mem = beaMap(x,3)
 			memList.append(mem)
 		for item in memList:
 			sendString(item)
+		'''
 		sendString(mem1)
 		sendString(mem2)
 		sendString(mem3)
 		sendString(mem4)
+		sendString(mem5)
+		sendString(mem6)
+		sendString(mem7)
+		sendString(mem8)
+		sendString(mem9)
 		
 	
 	'''
