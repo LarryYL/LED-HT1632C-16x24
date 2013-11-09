@@ -94,6 +94,7 @@ def beaMap(pixelList):
 			if prefix == refPrefix:
 				tempList.append(index)
 		indexList.append(tempList)
+	print indexList
 		
 	addList = []	
 	count = 0
