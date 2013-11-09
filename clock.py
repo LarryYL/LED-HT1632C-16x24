@@ -80,6 +80,19 @@ def beaMap(pixelList):
 	
 		outputStr = '101' + binAdd + appendBin	
 		strList.append(outputStr)
+	
+	prefixList = []
+	indexLit = []
+	for add in strList:
+		prefix = add[0:10]
+		prefixList.append(prefix)
+	for prefix in prefixList:
+		for index,prefix in enumerate(prefixList):
+		
+		
+		
+	
+	
 	return strList
 
 def reset():
