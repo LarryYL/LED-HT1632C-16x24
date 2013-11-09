@@ -94,7 +94,7 @@ try:
 				print mem
 				sendString(mem)
 				GPIO.output(CS,GPIO.HIGH)
-				sleep(0.1)
+				sleep(0.01)
 				reset()
 
 	
