@@ -133,11 +133,10 @@ try:
 	reset()
 	
 	pixelList = []
-	for x in range(10):
-		for y in range(10):
+	for x in range(23):
+		for y in range(15):
 			pixelList.append([x,y])
 	memList = beaMap(pixelList)
-	print memList
 		
 	while True:
 		for item in memList:
