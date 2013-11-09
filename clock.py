@@ -31,8 +31,8 @@ def Tobin(inter,digit):
 		raw = zeros + raw
 	return raw
 
-def sendString(bitString,CS=True):
-	if CS:
+def sendString(bitString,auto=True):
+	if auto:
 		GPIO.output(CS,GPIO.LOW)
 	for bit in bitString:
 		bit = int(bit)
@@ -43,7 +43,7 @@ def sendString(bitString,CS=True):
 			GPIO.output(DATA,GPIO.LOW)
 		GPIO.output(WRITE,GPIO.HIGH)
 	GPIO.output(DATA,GPIO.HIGH)
-	if CS:
+	if auto:
 		GPIO.output(CS,GPIO.HIGH)
 
 def beaMap(x,y):
@@ -58,7 +58,7 @@ def beaMap(x,y):
 	else:
 		ori = 1
 	
-	if colSkip=0:
+	if colSkip == 0:
 		address = ori + rowSkip*(16*2) + y*4 + colSkip*2
 	else:
 		address = ori + rowSkip*(16*2) + (y-8)*4 + colSkip*2
@@ -88,6 +88,7 @@ try:
 	sendString(SYSSET)
 	sendString(LEDON)
 	sleep(0.5)
+	reset()
 	while True:
 		'''
 		for y in range(0,16):
@@ -99,10 +100,21 @@ try:
 				reset()
 
 		'''
-		mem1 = beaMap(15,15)
-		mem2 = beaMap(15,16)
+		
+		mem1 = beaMap(5,5)
+		mem2 = beaMap(5,6)
+		mem3 = beaMap(5,7)
+		mem4 = beaMap(5,8)
+		memList = []
+		for x in range(3):
+			mem = beaMap(x,3)
+			memList.append(mem)
+		for item in memList:
+			sendString(item)
 		sendString(mem1)
 		sendString(mem2)
+		sendString(mem3)
+		sendString(mem4)
 		
 	
 	'''
@@ -121,7 +133,7 @@ try:
 		sendString(binStart)
 		sendString('0000')
 		GPIO.output(CS,GPIO.HIGH)
-		
+			
 		if start == 96:
 			start = 0
 		else:
