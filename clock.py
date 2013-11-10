@@ -167,9 +167,13 @@ try:
                 
                 hr = str(int(hr) + 4)
                 
+                if int(hr) > 23:
+                	hr = str(int(hr)-24)
+                	
                 if len(hr) == 1: 
                 	hr = '0' + str(hr)
 
+                	
                 digit1 = hr[0]
                 digit2 = hr[1]
                 
