@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
-from time import sleep
+from time import sleep,strftime
 import math
+import numpy as np
 
 CS = 3
 DATA = 5
@@ -25,7 +26,7 @@ seven = [[3,0],[1,0],[2,0],[0,1],[0,2],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6]]
 eight = [[1,0],[2,0],[0,1],[3,1],[0,2],[3,2],[0,4],[3,4],[0,5],[3,5],[1,6],[2,6],[1,3],[2,3]]
 nine = [[3,1],[3,2],[3,3],[3,4],[3,5],[0,5],[1,6],[2,6],[1,0],[2,0],[0,1],[0,2],[1,3],[2,3]]
 
-numbers = [zero,one,two,three,four,five,six,seven,eight,nine]
+numbers = np.array([zero,one,two,three,four,five,six,seven,eight,nine])
 
 
 GPIO.setmode(GPIO.BOARD)
