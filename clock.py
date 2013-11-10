@@ -173,6 +173,7 @@ try:
                 
                 numberList = number1.tolist() + number2.tolist() + number3.tolist() + number4.tolist()
                 memList = beaMap(numberList)
+                reset()
                 for add in memList:
                     sendString(add)
             
