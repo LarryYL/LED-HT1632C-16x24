@@ -158,7 +158,6 @@ try:
         dateTimeLast = None
         while True:
             dateTime =  strftime('%H%M')
-            print dateTime
             if dateTime == dateTimeLast:
                 continue     
             else:
@@ -167,8 +166,8 @@ try:
                 digit3 = dateTime[2]
                 digit4 = dateTime[3]
                 
-                number1 = numbers[int(digit1)+4] + np.array([1,3])
-                number2 = numbers[int(digit2)] + np.array([6,3])
+                number1 = numbers[int(digit1)] + np.array([1,3])
+                number2 = numbers[int(digit2)+4] + np.array([6,3])
                 number3 = numbers[int(digit3)] + np.array([13,3])
                 number4 = numbers[int(digit4)] + np.array([17,3])
                 
