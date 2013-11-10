@@ -167,9 +167,9 @@ try:
                 digit4 = dateTime[3]
                 
                 number1 = numbers[int(digit1)+4] + np.array([3,3])
-                number2 = numbers[int(digit2)] + np.array([5,3])
-                number3 = numbers[int(digit3)] + np.array([8,3])
-                number4 = numbers[int(digit4)] + np.array([10,3])
+                number2 = numbers[int(digit2)] + np.array([9,3])
+                number3 = numbers[int(digit3)] + np.array([16,3])
+                number4 = numbers[int(digit4)] + np.array([21,3])
                 
                 numberList = number1.tolist() + number2.tolist() + number3.tolist() + number4.tolist()
                 memList = beaMap(numberList)
