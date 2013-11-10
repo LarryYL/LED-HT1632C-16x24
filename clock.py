@@ -165,12 +165,11 @@ try:
                 digit3 = dateTime[2]
                 digit4 = dateTime[3]
                 
-                hr = int(hr) + 4
+                hr = str(int(hr) + 4)
                 
                 if len(hr) == 1: 
                 	hr = '0' + str(hr)
-                else:
-                	hr = str(hr)
+
                 digit1 = hr[0]
                 digit2 = hr[1]
                 
