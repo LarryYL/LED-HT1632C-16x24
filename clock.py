@@ -161,13 +161,21 @@ try:
             if dateTime == dateTimeLast:
                 continue     
             else:
-                digit1 = dateTime[0]
-                digit2 = dateTime[1]
+                hr = dateTime[0:2]
                 digit3 = dateTime[2]
                 digit4 = dateTime[3]
                 
+                hr = int(hr) + 4
+                
+                if len(hr) == 1: 
+                	hr = '0' + str(hr)
+                else:
+                	hr = str(hr)
+                digit1 = hr[0]
+                digit2 = hr[1]
+                
                 number1 = numbers[int(digit1)] + np.array([1,3])
-                number2 = numbers[int(str(int(digit2)+4)[-1])] + np.array([6,3])
+                number2 = numbers[int(digit2)] + np.array([6,3])
                 number3 = numbers[int(digit3)] + np.array([14,3])
                 number4 = numbers[int(digit4)] + np.array([19,3])
                 
