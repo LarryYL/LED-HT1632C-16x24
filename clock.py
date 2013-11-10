@@ -158,6 +158,7 @@ try:
         dateTimeLast = None
         while True:
             dateTime =  strftime('%H%M')
+            print dateTime
             if dateTime == dateTimeLast:
                 continue     
             else:
@@ -166,10 +167,10 @@ try:
                 digit3 = dateTime[2]
                 digit4 = dateTime[3]
                 
-                number1 = numbers[int(digit1)+4] + np.array([2,3])
-                number2 = numbers[int(digit2)] + np.array([8,3])
-                number3 = numbers[int(digit3)] + np.array([15,3])
-                number4 = numbers[int(digit4)] + np.array([19,3])
+                number1 = numbers[int(digit1)+4] + np.array([1,3])
+                number2 = numbers[int(digit2)] + np.array([6,3])
+                number3 = numbers[int(digit3)] + np.array([13,3])
+                number4 = numbers[int(digit4)] + np.array([17,3])
                 
                 numberList = number1.tolist() + number2.tolist() + number3.tolist() + number4.tolist()
                 memList = beaMap(numberList)
@@ -177,6 +178,7 @@ try:
                     sendString(add)
             
             dateTimeLast = dateTime
+            sleep(0.5)
         
             
 except KeyboardInterrupt:
