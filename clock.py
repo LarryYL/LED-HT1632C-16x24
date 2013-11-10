@@ -143,7 +143,7 @@ try:
 	sendString(LEDON)
 	sleep(0.5)
 	reset()
-	
+	'''
 	addList = []
 	for number in numbers:
 	   memList = beaMap(number)
@@ -155,28 +155,30 @@ try:
         	sleep(0.5)
         	reset()
 	'''
-	start = 0
-	while True:	
-		binStart = Tobin(start,7)
-		for address in ['1000','0100','0010','0001']:
-			GPIO.output(CS,GPIO.LOW)
-			sendString(write)
-			sendString(binStart)
-			sendString(address)
-			GPIO.output(CS,GPIO.HIGH)
-			sleep(0.1)			
-		GPIO.output(CS,GPIO.LOW)
-		sendString(write)
-		sendString(binStart)
-		sendString('0000')
-		GPIO.output(CS,GPIO.HIGH)
-			
-		if start == 96:
-			start = 0
-		else:
-			start += 1
-	'''
-
+        dateTimeLast = None
+        while True:
+            dateTime =  strftime('%H%M')
+            if dateTime == dateTimeLast:
+                continue     
+            else:
+                digit1 = dateTime[0]
+                digit2 = dateTime[1]
+                digit3 = dateTime[2]
+                digit4 = dateTime[3]
+                
+                number1 = numbers[int(digit1)+4] + np.array([3,3])
+                number2 = numbers[int(digit2)] + np.array([5,3])
+                number3 = numbers[int(digit3)] + np.array([8,3])
+                number4 = numbers[int(digit4)] + np.array([10,3])
+                
+                numberList = number1.tolist() + number2.tolist() + number3.tolist() + number4.tolist()
+                memList = beaMap(numberList)
+                for add in memList:
+                    sendString(add)
+            
+            dateTimeLast = dateTime
+        
+            
 except KeyboardInterrupt:
 	sendString(LEDOFF)
 	sendString(SYSOFF)
